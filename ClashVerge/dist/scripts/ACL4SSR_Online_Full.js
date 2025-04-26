@@ -12,7 +12,21 @@ const userRules = [
 ]
 // 用户自定义分组，配合用户自定义规则使用
 const userSelectorNames = ["IBM"]
-
+// webshare节点
+const webshareNodeList= 
+    [
+      {
+        "name": "webshare name",
+        "server": "0.0.0.0", //链式代理ip
+        "port": 1, //链式代理端口
+        "type": "socks5",
+        "username": "username1", //链式代理账号
+        "password": "password1", //链式代理密码
+        "tls": false,
+        "skip-cert-verify": true,
+        // "udp": true
+      },
+    ]
 const ruleProviders = {
   // "Ipv6": {
   //   "type": "http",
@@ -228,20 +242,6 @@ function getProxiesByRegex(proxies, regex, concatProxies = []) {
 }
 
 function main(config) {
-    const webshareNodeList= 
-    [
-      {
-        "name": "webshare name",
-        "server": "0.0.0.0", //链式代理ip
-        "port": 1, //链式代理端口
-        "type": "socks5",
-        "username": "username1", //链式代理账号
-        "password": "password1", //链式代理密码
-        "tls": false,
-        "skip-cert-verify": true,
-        // "udp": true
-      },
-    ]
     webshareNodeList.forEach(node => {
       config.proxies.push(node);
     });
