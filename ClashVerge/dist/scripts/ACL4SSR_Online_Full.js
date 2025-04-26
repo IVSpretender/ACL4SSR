@@ -498,7 +498,6 @@ function main(config) {
           filter: excludeRegexStr,
         },
         {
-          ...groupBaseOption,
           name: "链式落地",
           type: "select",
           proxies: webshareNodeList.map(node => node.name),
